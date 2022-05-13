@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from tkinter import *
+from tkinter import Tk, Button, Label, Entry
 
 
 """
@@ -50,17 +50,22 @@ def division(event):
 
 if __name__ == '__main__':
     root = Tk()
+    root.title('Калькулятор')
+    root.geometry('200x200')
+
+    l1 = Label(font="Arial 14")
     ent1 = Entry(width=30)
     ent2 = Entry(width=30)
     but1 = Button(text='+')
     but2 = Button(text='-')
     but3 = Button(text='*')
     but4 = Button(text='/')
-    l1 = Label(font="Arial 14")
+
     but1.bind('<Button-1>', summa)
     but2.bind('<Button-1>', subtraction)
     but3.bind('<Button-1>', multiplication)
     but4.bind('<Button-1>', division)
+
     l1.config(bd=10)
     ent1.pack()
     ent2.pack()
@@ -69,4 +74,5 @@ if __name__ == '__main__':
     but3.pack()
     but4.pack()
     l1.pack()
+
     root.mainloop()

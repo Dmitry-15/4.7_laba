@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from tkinter import *
+from tkinter import Tk, Button, Label, Entry, Radiobutton, StringVar
 
 
 """
@@ -25,11 +25,15 @@ def number3():
 
 if __name__ == '__main__':
     root = Tk()
-    var = IntVar()
-    var.set(-1)
+    root.title('Радиокнопки')
+    root.geometry('250x200')
+
+    var = StringVar()
+
     Radiobutton(indicatoron=0, text="Дмитрий", width=10, pady=5, command=number1, variable=var, value=0).pack()
     Radiobutton(indicatoron=0, text="Николай", width=10, pady=5, command=number2, variable=var, value=1).pack()
     Radiobutton(indicatoron=0, text="Игорь", width=10, pady=5, command=number3, variable=var, value=2).pack()
     label = Label(width=40, height=8)
     label.pack()
+
     root.mainloop()
