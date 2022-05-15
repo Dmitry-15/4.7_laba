@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from tkinter import Tk, Button, Label, Entry, END, Text
+from tkinter import Tk, Button, END, Text
 from tkinter import filedialog as fd
 
 
@@ -14,7 +14,7 @@ from tkinter import filedialog as fd
 """
 
 
-def opening(event):
+def opening():
     text.delete(1.0, END)
     open_file = fd.askopenfilename()
     with open(open_file, 'r', encoding="utf-8") as f:
@@ -22,7 +22,7 @@ def opening(event):
     text.insert(1.0, data)
 
 
-def saving(event):
+def saving():
     save_file = fd.asksaveasfilename(defaultextension=".txt", filetypes=(("Текстовый файл", "*.txt"),
                                                                          ("All files", "*.*"),))
     data = text.get(1.0, END)
@@ -36,14 +36,12 @@ if __name__ == '__main__':
     root.geometry('650x700')
 
     text = Text(width=80, height=80)
-    ent = Entry(width=20)
-    but1 = Button(text='Открыть', width=8, pady=5)
-    but2 = Button(text='Сохранить', width=8, pady=5)
+    but1 = Button(text='Открыть', width=10, pady=6, command=opening)
+    but2 = Button(text='Сохранить', width=10, pady=6, command=saving)
 
     but1.bind('<Button-1>', opening)
     but2.bind('<Button-1>', saving)
 
-    ent.pack()
     but1.pack()
     but2.pack()
     text.pack()
